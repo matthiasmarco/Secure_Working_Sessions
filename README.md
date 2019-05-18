@@ -1,2 +1,2 @@
 # Secure_Working_Sessions
-This tool provide secure working environments and some other features like a rootkit scan to improve the integrity of your work.
+This app helps you to work free and secured, to preserve integrity of you work, and intelligence property.
