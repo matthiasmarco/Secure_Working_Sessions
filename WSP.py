@@ -3,20 +3,47 @@
 import subprocess, time, os, sys
 
 #installation
+
+	#installation path should be non root ? test required
+
+	#TEST OUTPUT : 
+	#DECISION : 
+
 if not os.path.isfile('/home/Secure_Working_Sessions/installation'):
+
 	print("               +--------------+")
 	print("               | Installation |")
 	print("               +--------------+\n")
+
 	subprocess.call(['sudo','apt-get','install','ccrypt','mplayer','zenity','git','tree','nemo','-y'])
-	if not os.path.isdir('/home/Secure_Working_Sessions'):
+
+	if not os.path.isfile('/home/Secure_Working_Sessions/installation'):
+
 		os.chdir('/home/')
-		subprocess.call(['git','clone','https://github.com/matthiasmarco/Secure_Working_Sessions/'])
-	        #installation = open('/home/Secure_Working_Sessions/installation','w')##same as above line
-		#installation.write('WSP installed')##here this file is needed for a continious use of WSP program.
-		#installation.close() no comment granteed
-        print("            +---------------------+")
-        print("            | Installation sucess |")
-        print("            +---------------------+\n")
+
+		try :
+			subprocess.call(['git','clone','https://github.com/matthiasmarco/Secure_Working_Sessions'])
+
+	        	print("            +---------------------+")
+	       		print("            | Installation sucess |")
+	        	print("            +---------------------+\n")
+
+			installation = open('/home/mint/Secure_Working_Sessions/installation_status','w')
+                        installation.write('WSP installed')
+                        installation.close()
+
+		except :
+                	print("            +---------------------+")
+                	print("            | Installation failed |")
+                	print("            +---------------------+\n")
+
+			try :
+				installation = open('/home/mint/Secure_Working_Sessions/installation_status','r')
+				value = installation.readlines(0)
+				if value == str('WPS installed') :
+					time.sleep(9000)
+			except :
+				subprocess.call(['killall','python'])
 
 #definition des fonctions subalternes
 
