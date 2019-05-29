@@ -1,13 +1,23 @@
 #!/usr/bin/python
 #!encoding=UTF-8
+
 import subprocess, time, os, sys
 
 #installation
 
 	#installation path should be non root ? test required
 
-	#TEST OUTPUT : 
-	#DECISION : 
+	#TEST OUTPUT : none required
+	#DECISION : we do it sudo
+
+try :
+	os.mkdir("/test_sudo")
+	os.rmdir("/test_sudo")
+
+except :
+	print('Must be root to run script...')
+	time.sleep(2)
+	subprocess.call(['killall','python'])
 
 if not os.path.isfile('/home/Secure_Working_Sessions/installation'):
 
@@ -28,22 +38,15 @@ if not os.path.isfile('/home/Secure_Working_Sessions/installation'):
 	       		print("            | Installation sucess |")
 	        	print("            +---------------------+\n")
 
-			installation = open('/home/mint/Secure_Working_Sessions/installation_status','w')
-                        installation.write('WSP installed')
-                        installation.close()
+			file = open('/home/Secure_Working_Sessions/installation','w')
+			file.write('sucess')
+			file.close()
 
 		except :
                 	print("            +---------------------+")
                 	print("            | Installation failed |")
-                	print("            +---------------------+\n")
-
-			try :
-				installation = open('/home/mint/Secure_Working_Sessions/installation_status','r')
-				value = installation.readlines(0)
-				if value == str('WPS installed') :
-					time.sleep(9000)
-			except :
-				subprocess.call(['killall','python'])
+                	print("            +---------------------+")
+			subprocess.call(['killall','python'])
 
 #definition des fonctions subalternes
 
