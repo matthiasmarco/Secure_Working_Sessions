@@ -247,9 +247,10 @@ def Open_a_previous_working_sequence() :
                 if choice == 1 :
                         print('Securely removing the sessions....')
                         #print('Curentrly under development ......')
-                        file = open('/home/Secure_Working_Sessions/files/sessions_list', 'r')
+                        file = open('/home/Secure_Working_Sessions/ressources/files/sessions_list', 'r')
                         sessions_list = file.readlines()
-                        for session in session_list:
+			file.close()
+                        for session in sessions_list:
                                 print(str(session))
                         print('End MARKER')
                         time.sleep(9000)
