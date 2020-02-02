@@ -244,14 +244,21 @@ def Open_a_previous_working_sequence() :
 		print('|')
         	print('+---http://ftp.fau.de/cdn.media.ccc.de/')
 		choice = input('Your choice :\n> ')
+                if choice == 1 :
+                        print('Securely removing the sessions....')
+                        #print('Curentrly under development ......')
+                        file = open('/home/Secure_Working_Sessions/files/sessions_list', 'r')
+                        sessions_list = file.readlines()
+                        for session in session_list:
+                                print(str(session))
+                        print('End MARKER')
+                        time.sleep(9000)
+                                #suprocess.call(['shred','-r',session])
+                        time.sleep(2)
+                        clear_screen()
+                        Main()
+                        programm()
 
-		if choice == 1 :
-			print('Securely removing the sessions....')
-			print('Curentrly under development ......')
-		        time.sleep(2)
-	        	clear_screen()
-	        	Main()
-        		programm()
 
 		if choice == 2 :
 			print('Zenity code here to get the selection list....')
