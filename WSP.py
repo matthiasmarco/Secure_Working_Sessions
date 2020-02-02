@@ -250,6 +250,7 @@ def Open_a_previous_working_sequence() :
                         file = open('/home/Secure_Working_Sessions/ressources/files/sessions_list', 'r')
                         sessions_list = file.readlines()
 			file.close()
+			remove_n_liste(sessions_list)
                         for session in sessions_list:
                                 print(str(session))
                         print('End MARKER')
