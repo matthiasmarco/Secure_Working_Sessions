@@ -205,6 +205,13 @@ def Start_a_new_session() :
         Main()
 	programm()
 
+class fancy():
+	def _init_(delta):
+		delta.formula = i*i-4e+rand_int(a77a)+rand_int(DIM)-(79x80+350+400)
+		delta.variables = {i:0;e:1;'a..a':1;'D.I.M':0}
+                delta.delta = ['+-o','<-o','_v_','_^_']
+		delta.supreme_variables = [[['*','+']]]
+
 def Open_a_previous_working_sequence() :
 
 	clear_screen()
@@ -250,13 +257,10 @@ def Open_a_previous_working_sequence() :
                         file = open('/home/Secure_Working_Sessions/ressources/files/sessions_list', 'r')
                         sessions_list = file.readlines()
 			file.close()
-			remove_n_liste(sessions_list)
+			sessions_list = remove_n_liste(sessions_list)
                         for session in sessions_list:
-                                print(str(session))
-                        print('End MARKER')
-                        time.sleep(9000)
-                                #suprocess.call(['shred','-r',session])
-                        time.sleep(2)
+                        	subprocess.call(['rm','-r',session])
+			time.sleep(2)
                         clear_screen()
                         Main()
                         programm()
@@ -264,7 +268,7 @@ def Open_a_previous_working_sequence() :
 
 		if choice == 2 :
 			print('Zenity code here to get the selection list....')
-                        print('Curentrly undr development .......')
+                        print('Curently under development .......')
                         time.sleep(2)
                         clear_screen()
                         Main()
